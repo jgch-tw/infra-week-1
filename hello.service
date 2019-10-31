@@ -1,0 +1,9 @@
+[Unit]
+Description=hello
+
+[Service]
+ExecStart=/usr/bin/java -jar /home/vagrant/hello-spring-boot-0.1.0.jar
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
