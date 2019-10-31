@@ -3,7 +3,7 @@ Description=hello
 
 [Service]
 User=vagrant
-ExecStart=/usr/bin/java -jar /home/vagrant/hello-spring-boot-0.1.0.jar
+ExecStart=/usr/bin/java -jar /home/vagrant/hello-spring-boot-0.1.0.jar --spring.config.name=/home/vagrant/test.application.properties
 Restart=always
 
 [Install]
