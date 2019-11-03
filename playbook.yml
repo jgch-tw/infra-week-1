@@ -1,6 +1,10 @@
 - name: Provisioning
   hosts: all
   tasks:
+    - name: install hello service systemd unit file
+      template:
+        src: /home/vagrant/hello.service 
+        dest: /etc/systemd/system/hello.service
     - name: Start hello service
       become: true
       systemd:
