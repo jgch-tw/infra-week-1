@@ -1,5 +1,7 @@
 - name: Provisioning
   hosts: all
+  vars:
+    env: test
   tasks:
     - name: install hello service systemd unit file
       become: true
