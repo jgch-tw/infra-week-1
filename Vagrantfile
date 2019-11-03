@@ -14,8 +14,12 @@ Vagrant.configure("2") do |config|
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "hashicorp/bionic64"
   config.vm.provision "file", source: "./hello-spring-boot-0.1.0.jar", destination: "~/hello-spring-boot-0.1.0.jar"
-  config.vm.provision "file", source: "./hello.service", destination: "~/hello.service"
+  config.vm.provision "file", source: "./hello.service.j2", destination: "~/hello.service.j2"
+
+  # assume we copy all the various application.properties files in here, or in a typical case probably
+  # it clones a repo with all these files present already
   config.vm.provision "file", source: "./test.application.properties", destination: "~/test.application.properties"
+
   config.vm.provision :shell, path: "bootstrap.sh"
   config.vm.provision "ansible_local" do |ansible|
     ansible.playbook = "playbook.yml"
