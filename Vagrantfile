@@ -17,6 +17,9 @@ Vagrant.configure("2") do |config|
   config.vm.provision "file", source: "./hello.service", destination: "~/hello.service"
   config.vm.provision "file", source: "./test.application.properties", destination: "~/test.application.properties"
   config.vm.provision :shell, path: "bootstrap.sh"
+  config.vm.provision "ansible_local" do |ansible|
+    ansible.playbook = "playbook.yml"
+  end
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.

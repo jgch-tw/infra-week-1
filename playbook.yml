@@ -1,0 +1,8 @@
+- name: Provisioning
+  hosts: all
+  tasks:
+    - name: Start hello service
+      become: true
+      systemd:
+        state: started
+        name: hello
